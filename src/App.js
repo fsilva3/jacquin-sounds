@@ -1,19 +1,21 @@
-import React, { useState, useContext } from "react"
+import React, { useContext } from "react"
 import soundsContext from "store/sounds"
 
 function App() {
 	const items = useContext(soundsContext)
 
 	const playSound = sound => {
-		if (!sound.paused) sound.pause()
-		else sound.play()
+		sound.play()
 	}
 
 	return (
 		<div className="App">
 			{items.map(item => {
-				const sound = new Audio(item.path)
-				return <button onPointerDown={() => playSound(sound)}>{item.id}</button>
+				return (
+					<button key={item.id} className="audio-button" onClick={() => playSound(item.audio)}>
+						{item.id}
+					</button>
+				)
 			})}
 		</div>
 	)

@@ -1,17 +1,47 @@
 import { createContext } from "react"
 
-const bleh = `${process.env.PUBLIC_URL}/assets/bleh.mp3`
-const vumito = `${process.env.PUBLIC_URL}/assets/vumito.mp3`
-
-const soundsContext = createContext([
+const sounds = [
 	{
-		id: "bleh",
-		path: bleh
+		id: "bleh"
 	},
 	{
-		id: "vumito",
-		path: vumito
+		id: "vumito"
+	},
+	{
+		id: "cagada"
+	},
+	{
+		id: "pqp"
+	},
+	{
+		id: "pegadinha"
+	},
+	{
+		id: "melhor-do-mundo"
+	},
+	{
+		id: "matar-gente"
+	},
+	{
+		id: "nao-faz-nada"
+	},
+	{
+		id: "vergonha"
+	},
+	{
+		id: "desliga-freezer"
+	},
+	{
+		id: "cala-boca"
 	}
-])
+].map(item => {
+	const path = `${process.env.PUBLIC_URL}/assets/${item.id}.mp3`
+	return {
+		...item,
+		audio: new Audio(path)
+	}
+})
+
+const soundsContext = createContext(sounds)
 
 export default soundsContext
