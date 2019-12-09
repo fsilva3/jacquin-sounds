@@ -10,12 +10,13 @@
 	},
 	"parserOptions": {
 		"ecmaFeatures": {
-			"jsx": true
+			"jsx": true,
+			"modules": true
 		},
 		"ecmaVersion": 2018,
 		"sourceType": "module"
 	},
-	"plugins": ["react", "plugin:react/recommended"],
+	"plugins": ["react", "react/recommended"],
 	"rules": {
 		"indent": ["error", "tab"],
 		"linebreak-style": ["error", "unix"],

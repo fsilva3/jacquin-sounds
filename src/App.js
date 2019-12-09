@@ -1,17 +1,22 @@
-import React, { useState } from "react"
-
-const bleh = `${process.env.PUBLIC_URL}/assets/vumito.mp3`
+import React, { useContext } from "react"
+import soundsContext from "store/sounds"
 
 function App() {
-	const [sound] = useState(new Audio(bleh))
-	const playSound = () => {
-		if (!sound.paused) sound.pause()
-		else sound.play()
+	const items = useContext(soundsContext)
+
+	const playSound = sound => {
+		sound.play()
 	}
 
 	return (
 		<div className="App">
-			<button onClick={playSound}>play</button>
+			{items.map(item => {
+				return (
+					<button key={item.id} className="audio-button" onClick={() => playSound(item.audio)}>
+						{item.id}
+					</button>
+				)
+			})}
 		</div>
 	)
 }
