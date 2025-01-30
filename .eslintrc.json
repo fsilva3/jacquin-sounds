@@ -3,7 +3,7 @@
 		"browser": true,
 		"es6": true
 	},
-	"extends": "eslint:recommended",
+	"extends": ["react-app", "shared-config"],
 	"globals": {
 		"Atomics": "readonly",
 		"SharedArrayBuffer": "readonly"
@@ -16,7 +16,6 @@
 		"ecmaVersion": 2018,
 		"sourceType": "module"
 	},
-	"plugins": ["react", "react/recommended"],
 	"rules": {
 		"indent": ["error", "tab"],
 		"linebreak-style": ["error", "unix"],
